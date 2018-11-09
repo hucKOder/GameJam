@@ -19,17 +19,14 @@ public class CameraHandler : MonoBehaviour {
             if (Quaternion.Equals(transform.rotation, finalRotation))
             {
                 gameIsReady = true;
+
+                GameObject[] people = GameObject.FindGameObjectsWithTag("People");
+                Debug.Log(people);
+                foreach (var peasant in people)
+                {
+                    peasant.SetActive(true);
+                }
             }
         }
-        else
-        {
-            GameObject[] people = GameObject.FindGameObjectsWithTag("People"); 
-            foreach (var peasant in people)
-            {
-                peasant.SetActive(true);
-            }
-
-        }
-
     }
 }
