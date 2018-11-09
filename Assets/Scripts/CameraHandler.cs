@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraHandler : MonoBehaviour {
 
-    bool gameIsReady = false;
+    [HideInInspector]
+    public bool gameIsReady = false;
 	// Use this for initialization
 	void Start () {
 	}
@@ -19,13 +20,6 @@ public class CameraHandler : MonoBehaviour {
             if (Quaternion.Equals(transform.rotation, finalRotation))
             {
                 gameIsReady = true;
-
-                GameObject[] people = GameObject.FindGameObjectsWithTag("People");
-                Debug.Log(people);
-                foreach (var peasant in people)
-                {
-                    peasant.SetActive(true);
-                }
             }
         }
     }

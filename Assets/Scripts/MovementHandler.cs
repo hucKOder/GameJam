@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class MovementHandler : MonoBehaviour {
 
-    [SerializeField]
-    Transform destination;
+    public Vector3 destination;
 
     public float speed = 5.0f;
 
@@ -16,7 +15,7 @@ public class MovementHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.position = Vector2.MoveTowards(transform.position, destination.position, speed);
+        transform.position = Vector2.MoveTowards(transform.position, destination, speed);
         // initialize dialog
 	}
 }
