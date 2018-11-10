@@ -1,8 +1,9 @@
 fileFormatVersion: 2
-guid: 808dcf1fcb2a45d40b5bab3bd4a1f50b
+guid: b0371a4000048413aade2f50208c3fe4
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Priest_0
+    21300000: test_demon_charge_0
+    21300002: test_demon_charge_1
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -46,9 +47,9 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -85,21 +86,41 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Priest_0
+      name: test_demon_charge_0
       rect:
         serializedVersion: 2
-        x: 8
-        y: 0
-        width: 16
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 0
+        y: 32
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 13df87a2b83a09948a6582ac914f2165
+      spriteID: 91de664a409c740ccae4779a4d649246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: test_demon_charge_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b3bd2160c0a443668dd804db5b3c2fa
       vertices: []
       indices: 
       edges: []
@@ -107,7 +128,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6ba91508fa0189e48bf9b31513134ea9
+    spriteID: 54225b52b87ff44d1b89b9e857de22f4
     vertices: []
     indices: 
     edges: []

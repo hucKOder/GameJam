@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114618260078859900}
   - component: {fileID: 58670401185814610}
   - component: {fileID: 50134130858577120}
+  - component: {fileID: 114419408413932774}
   m_Layer: 0
   m_Name: Fighter
   m_TagString: Fighter
@@ -78,6 +79,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.1
+--- !u!114 &114419408413932774
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1458879523825886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca747a8776f2d489b91c16fa915c14d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114618260078859900
 MonoBehaviour:
   m_ObjectHideFlags: 1
