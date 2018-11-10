@@ -116,7 +116,7 @@ public class FighterHandler : MonoBehaviour
             else
             {
                 state = PlayerState.Dead;
-                GetComponent<SpriteRenderer>().color = Color.red;
+                //GetComponent<SpriteRenderer>().color = Color.red;
             }
         }
     }
