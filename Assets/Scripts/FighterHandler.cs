@@ -11,8 +11,11 @@ public class FighterHandler : MonoBehaviour
         Dash = 2,
         AfterDash = 3,
         Hit = 4,
-        Dead = 5,
+        Die = 5,
+        Dead = 6,
     }
+
+    public Animator animator;
 
     public PlayerState state;
     public float dashTimeout = 0.3f; // inability to dash right after
@@ -36,6 +39,8 @@ public class FighterHandler : MonoBehaviour
 
     void FixedUpdate()
     {
+        animator.SetInteger("State", (int)state);
+
         if (state == PlayerState.Dead)
         {
             return;
