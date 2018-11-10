@@ -10,12 +10,15 @@ public static class DataHandler
     private static int followers = 5;
     private static float godsAffection = 1;
 
-    private static bool wasInMinigame;
+    private static bool wasInMinigame = false;
     private static int numberOfDemons;
     private static int killedDemons;
     private static int day;
     private static int weather;
-    private static int forecast;
+    private static int forecast = 0;
+    private static int[] reward = new int[4];
+    private static int[] penalty = new int[4];
+    private static int weatherChoice = 0;
 
     public static List<Dialog> DialogJSONS
     {
@@ -118,6 +121,45 @@ public static class DataHandler
         set
         {
             forecast = value;
+        }
+    }
+
+    public static int WeatherChoice
+    {
+        get
+        {
+            return weatherChoice;
+        }
+
+        set
+        {
+            weatherChoice = value;
+        }
+    }
+
+    public static int[] Penalty
+    {
+        get
+        {
+            return penalty;
+        }
+
+        set
+        {
+            penalty = value;
+        }
+    }
+
+    public static int[] Reward
+    {
+        get
+        {
+            return reward;
+        }
+
+        set
+        {
+            reward = value;
         }
     }
 
