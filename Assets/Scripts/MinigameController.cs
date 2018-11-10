@@ -14,6 +14,7 @@ public class MinigameController : MonoBehaviour {
     private int spawnedDemons = 0;
     private int numberOfEnemies;
     private float spawnTimer;
+    private Transform fighter;
 
 
 	// Use this for initialization
@@ -28,10 +29,12 @@ public class MinigameController : MonoBehaviour {
         {
             Vector2 circle = Random.insideUnitCircle;
             circle.Normalize();
-            Instantiate(enemyPrefab, circle, Quaternion.identity);
+            Instantiate(enemyPrefab, circle * spawnRadius, Quaternion.identity);
             spawnedDemons++;
         }
         spawnTimer = Time.time + spawnCoolDown;
+
+        fighter = GameObject.FindGameObjectWithTag("Fighter").transform;
 	}
 	
 	// Update is called once per frame
@@ -40,8 +43,9 @@ public class MinigameController : MonoBehaviour {
         {
             Vector2 circle = Random.insideUnitCircle;
             circle.Normalize();
-            Instantiate(enemyPrefab, circle, Quaternion.identity);
+            Instantiate(enemyPrefab, circle * spawnRadius + (Vector2)fighter.position, Quaternion.identity);
             spawnedDemons++;
+            spawnTimer = Time.time + spawnCoolDown;
         }
 	}
 }
