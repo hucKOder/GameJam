@@ -108,7 +108,7 @@ public class FighterHandler : MonoBehaviour
     {
         if (other.tag == "Enemy")
         {
-            if (state == PlayerState.Dash || state == PlayerState.AfterDash || invincible)
+            if (state == PlayerState.Dash || invincible)
             {
                 var enemyHandler = other.GetComponent<EnemyHandler>();
                 enemyHandler.Hit();

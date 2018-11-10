@@ -111,7 +111,8 @@ public class VisualHandler : MonoBehaviour
             CalfNodeR.GetComponent<SpriteRenderer>().sprite = manager.calves_r[legsID];
             CalfNodeL.GetComponent<SpriteRenderer>().sprite = manager.calves_l[legsID];
 
-
+            LookRight();
+            LookDown();
 
         }
         else

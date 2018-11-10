@@ -138,7 +138,7 @@ public class EnemyHandler : MonoBehaviour
                 {
                     currentState = State.DEATH;
                     Destroy(GetComponent<Rigidbody2D>());
-                    Destroy(GetComponent<CircleCollider2D>());
+                    Destroy(GetComponent<BoxCollider2D>());
                 }
                 else
                 {
