@@ -10,6 +10,7 @@ public class MinigameController : MonoBehaviour {
     public int spawnAtBeginning = 3;
     public float spawnCoolDown = 1.5f;
     public GameObject enemyPrefab;
+    public SceneController sceneController;
 
     private int spawnedDemons = 0;
     private int numberOfEnemies;
@@ -47,5 +48,16 @@ public class MinigameController : MonoBehaviour {
             spawnedDemons++;
             spawnTimer = Time.time + spawnCoolDown;
         }
+
+        if (DataHandler.NumberOfDemons == DataHandler.KilledDemons)
+        {
+            StartCoroutine(transition());
+        }
 	}
+
+    IEnumerator transition()
+    {
+        yield return new WaitForSeconds(2f);
+        sceneController.LoadNextScene();
+    }
 }
