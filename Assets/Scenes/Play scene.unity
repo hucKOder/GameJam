@@ -982,9 +982,6 @@ MonoBehaviour:
     pastWeather: 
   meetingPoint: {fileID: 0}
   waitTime: 2
-  gameDataFileName: 
-  dialogueID: 0
-  currentSentenceCounter: 0
 --- !u!1 &852028310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1267,6 +1264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraHandler: {fileID: 293707719}
+  peasants: []
   peasantPrefab: {fileID: 1851929666235188, guid: 2f0910c58bb33644a96b6d872b0ba15c,
     type: 2}
   numberOfPeasants: 4

@@ -13,9 +13,11 @@ public class DialogTrigger : MonoBehaviour
     public float waitTime = 2.0f;
     DialogueManager priestDM;
     DialogueManager peopleDM;
-    public string gameDataFileName;
-    public int dialogueID;
-    public int currentSentenceCounter = 0;
+    string gameDataFileName;
+    int dialogueID;
+    int currentSentenceCounter = 0;
+
+    bool isTalking = false;
 
     private void Start()
     {

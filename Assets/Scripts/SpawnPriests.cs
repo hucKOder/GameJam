@@ -6,6 +6,8 @@ public class SpawnPriests : MonoBehaviour {
 
     public CameraHandler cameraHandler;
 
+    public List<GameObject> peasants;
+
     public GameObject peasantPrefab;
     public int numberOfPeasants = 3;
     public Transform destination;
@@ -19,6 +21,8 @@ public class SpawnPriests : MonoBehaviour {
     public float minSpeed = 0.01f;
     public float maxSpeed = 0.02f;
 
+    int currentPeasant = 0;
+
     DialogTrigger dialogTrigger;
     
 
@@ -29,27 +33,38 @@ public class SpawnPriests : MonoBehaviour {
         if (!peasantsSpawned && cameraHandler.gameIsReady) {
             SpawnPeasants();
             peasantsSpawned = true;
-        }  
-	}
+        }
+
+        if (Vector3.Distance(peasants[0].transform.position, destination.position) < 0.001)
+        {
+            StartDialog(peasants[0]);
+        }
+    }
 
     void SpawnPeasants()
     {
+        peasants = new List<GameObject>();
+
         for (var i = 0; i < numberOfPeasants; i++)
         {
-            var peasant = Instantiate(peasantPrefab, spawnPoint.position + new Vector3(i * spawnOffset, 0, 0), Quaternion.LookRotation(-Vector3.forward, Vector3.up));
+            GameObject peasant = Instantiate(peasantPrefab, spawnPoint.position + new Vector3(i * spawnOffset, 0, 0), Quaternion.LookRotation(-Vector3.forward, Vector3.up));
             MovementHandler movementHandler = peasant.GetComponent<MovementHandler>();
+            peasants.Add(peasant);
 
             if (movementHandler != null)
             {
-                if (i == 0)
-                {
-                    dialogTrigger = peasant.AddComponent<DialogTrigger>();
-                }
-
                 float speed = Random.Range(minSpeed, maxSpeed);
                 movementHandler.speed = speed;
-                movementHandler.destination = destination.position + new Vector3(i * positionOffset/numberOfPeasants + Random.Range(-randomOffsetX,randomOffsetX), Random.Range(-randomOffsetY, randomOffsetY) * numberOfPeasants, 0);
+                movementHandler.destination = destination.position + new Vector3(i * positionOffset / numberOfPeasants + Random.Range(-randomOffsetX, randomOffsetX), Random.Range(-randomOffsetY, randomOffsetY) * numberOfPeasants, 0);
             }
         }
+    }
+
+    void StartDialog(GameObject peasant)
+    {
+        dialogTrigger = peasant.AddComponent<DialogTrigger>();
+        dialogTrigger.TriggerDialogue();
+
+        currentPeasant++;
     }
 }
