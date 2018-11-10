@@ -19,12 +19,32 @@ public class CalculateStatistics : MonoBehaviour {
 
     private void Affection()
     {
-        
+        if (DataHandler.WasInMinigame) {
+            DataHandler.GodsAffection -= 0.07f;
+            DataHandler.GodsAffection = Mathf.Clamp(DataHandler.GodsAffection, 0f, 1f);
+            affectionText.text = DataHandler.GodsAffection.ToString() + " (-0.07)";
+        }
+        else
+        {
+            DataHandler.GodsAffection += 0.03f;
+            affectionText.text = DataHandler.GodsAffection.ToString() + " (+0.03)";
+        }
     }
 
     private void Followers()
     {
-        
+        // Weather is already calculated
+        int raise = DataHandler.Reward[DataHandler.Weather] - DataHandler.Penalty[DataHandler.Weather];
+        DataHandler.Followers += raise;
+
+        if (raise >= 0)
+        {
+            followersText.text = DataHandler.Followers.ToString() + " (+" + raise.ToString() + ")";
+        }
+        else
+        {
+            followersText.text = DataHandler.Followers.ToString() + " (" + raise.ToString() + ")";
+        }
     }
 
     public void Weather()

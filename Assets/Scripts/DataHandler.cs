@@ -16,8 +16,8 @@ public static class DataHandler
     private static int day;
     private static int weather;
     private static int forecast = 0;
-    private static int[] reward = new int[4];
-    private static int[] penalty = new int[4];
+    private static int[] reward = new int[4] { 0, 0, 0, 0 };
+    private static int[] penalty = new int[4] { 0, 0, 0, 0 };
     private static int weatherChoice = 0;
 
     public static List<Dialog> DialogJSONS
