@@ -15,7 +15,8 @@ public class EnemyHandler : MonoBehaviour
         DASH = 3,
         AFTER_DASH = 4,
         HIT = 5,
-        DEATH = 6
+        DEATH = 6,
+        SPAWN = 7
     };
 
     public int Health = 1;
@@ -28,8 +29,9 @@ public class EnemyHandler : MonoBehaviour
     public float timeToSetDistance = 0.5f;
     public float dashRecoveryTime = 0.4f;
     public float hitRecoveryTime = 0.2f;
+    public float spawnTime = 10f;
 
-    public State currentState = State.WALK;
+    public State currentState = State.SPAWN;
 
     private GameObject fighter;
     private bool isPositionSet = false;
@@ -37,11 +39,13 @@ public class EnemyHandler : MonoBehaviour
     private float chargeTimer;
     private float afterDashTimer;
     private float hitRecoveryTimer;
+    private float spawnTimmer = 0f;
 
     // Use this for initialization
     void Start()
     {
         fighter = GameObject.FindGameObjectWithTag("Fighter");
+        spawnTimmer = Time.time + spawnTime;
     }
 
     public void SetDireciton(Vector3 target)
@@ -81,6 +85,17 @@ public class EnemyHandler : MonoBehaviour
     {
         if (currentState != State.DEATH)
         {
+            if (currentState == State.SPAWN)
+            {
+                if (Time.time >= spawnTimmer) 
+                {
+                    currentState = State.WALK;
+                }
+                else 
+                {
+                    return;
+                }
+            }
             if ((currentState == State.IDLE || currentState == State.WALK) && fighter != null)
             {
                 // start charging
