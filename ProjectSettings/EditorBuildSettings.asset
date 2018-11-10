@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Intro.unity
+    path: Assets/Scenes/Intro.unity
     guid: 5a9ed1f1d2081d9489d4e1715d8e0f62
   - enabled: 1
-    path: Assets/Play scene.unity
+    path: Assets/Scenes/Play scene.unity
     guid: 68b622189d6dfc1479c7b36888465d02
+  - enabled: 1
+    path: Assets/Scenes/MinigameTransition.unity
+    guid: f9f9264b7b219f24484ec0e91dba3044
+  - enabled: 1
+    path: Assets/Scenes/Minigame.unity
+    guid: 91b9be80207b84d4faa5c9c2b26c70c2
   m_configObjects: {}
