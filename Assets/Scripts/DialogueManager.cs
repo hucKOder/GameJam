@@ -7,25 +7,24 @@ public class DialogueManager : MonoBehaviour {
 
     public Text nameText;
     public Text dialogueText;
+    public Image dialogBox;
     Queue<string> sentences;
 
     // Use this for initialization
     void Start()
     {
-        sentences = new Queue<string>();
+        dialogBox.enabled = false;
+        nameText.enabled = false;
+        dialogueText.enabled = false;
     }
 
-    public void StartDialogue(Dialog dialogue)
+    public void StartDialogue(Sentence sentence, string name)
     {
-        nameText.text = dialogue.name;
-        sentences.Clear();
-
-        foreach (string sentence in sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
-
-        DisplayNextSentence();
+        dialogBox.enabled = true;
+        nameText.enabled = true;
+        dialogueText.enabled = true;
+        nameText.text = name;
+        dialogueText.text = sentence.text;
     }
 
     public void DisplayNextSentence()
@@ -35,8 +34,9 @@ public class DialogueManager : MonoBehaviour {
             EndDialogue();
             return;
         }
-
+        
         var sentence = sentences.Dequeue();
+        Debug.Log(sentence);
         dialogueText.text = sentence;
     }
 
