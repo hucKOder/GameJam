@@ -1,11 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraHandler : MonoBehaviour {
 
+    public Image prayerBox;
+
+    private bool transitionReady = false;
     [HideInInspector]
     public bool gameIsReady = false;
+    [HideInInspector]
     public bool selectChoice = false;
     // Use this for initialization
     void Start () {
@@ -23,10 +28,15 @@ public class CameraHandler : MonoBehaviour {
                 gameIsReady = true;
             }
         }
-        if (selectChoice)
+        if (selectChoice && !transitionReady)
         {
             Quaternion finalRotation = Quaternion.LookRotation(Vector3.up, -Vector3.forward);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, finalRotation, 1);
+            if (Quaternion.Equals(transform.rotation, finalRotation))
+            {
+                transitionReady = true;
+                prayerBox.gameObject.SetActive(true);
+            }
         }
     }
 }
