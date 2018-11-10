@@ -6,9 +6,10 @@ public class CameraHandler : MonoBehaviour {
 
     [HideInInspector]
     public bool gameIsReady = false;
-	// Use this for initialization
-	void Start () {
-	}
+    public bool selectChoice = false;
+    // Use this for initialization
+    void Start () {
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -21,6 +22,11 @@ public class CameraHandler : MonoBehaviour {
             {
                 gameIsReady = true;
             }
+        }
+        if (selectChoice)
+        {
+            Quaternion finalRotation = Quaternion.LookRotation(Vector3.up, -Vector3.forward);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, finalRotation, 1);
         }
     }
 }

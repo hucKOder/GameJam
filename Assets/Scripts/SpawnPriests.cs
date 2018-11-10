@@ -24,7 +24,7 @@ public class SpawnPriests : MonoBehaviour {
     int currentPeasant = 0;
 
     DialogTrigger dialogTrigger;
-    
+    private bool inDialog = false;
 
     private bool peasantsSpawned = false;
 
@@ -34,10 +34,39 @@ public class SpawnPriests : MonoBehaviour {
             SpawnPeasants();
             peasantsSpawned = true;
         }
-
-        if (Vector3.Distance(peasants[0].transform.position, destination.position) < 0.001)
+        if (currentPeasant != peasants.Count)
         {
-            StartDialog(peasants[0]);
+            if (peasantsSpawned && !inDialog && Vector3.Distance(peasants[currentPeasant].transform.position, destination.position) <= 0.1)
+            {
+                inDialog = true;
+                StartDialog(peasants[currentPeasant]);
+            }
+            else if (peasantsSpawned)
+            {
+                peasants[currentPeasant].GetComponent<MovementHandler>().destination = destination.position;
+            }
+            if (peasantsSpawned && inDialog)
+            {
+                if (dialogTrigger.dialogue.sentences.Length + 1 == dialogTrigger.currentSentenceCounter)
+                {
+                    dialogTrigger.EndDialog();
+                    inDialog = false;
+                    peasants[currentPeasant].GetComponent<MovementHandler>().destination = spawnPoint.position;
+                    for (var i = peasants.Count - 1; i > currentPeasant + 1; i--)
+                    {
+                        peasants[i].GetComponent<MovementHandler>().destination.x = peasants[i - 1].GetComponent<MovementHandler>().destination.x;
+                    }
+                    peasants[currentPeasant].transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+                    currentPeasant++;
+                }
+            }
+        }
+        if (peasantsSpawned && currentPeasant == peasants.Count)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                cameraHandler.selectChoice = true;
+            }
         }
     }
 
@@ -63,8 +92,7 @@ public class SpawnPriests : MonoBehaviour {
     void StartDialog(GameObject peasant)
     {
         dialogTrigger = peasant.AddComponent<DialogTrigger>();
+        dialogTrigger.Spawn();
         dialogTrigger.TriggerDialogue();
-
-        currentPeasant++;
     }
 }

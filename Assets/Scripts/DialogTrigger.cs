@@ -15,11 +15,11 @@ public class DialogTrigger : MonoBehaviour
     DialogueManager peopleDM;
     string gameDataFileName;
     int dialogueID;
-    int currentSentenceCounter = 0;
+    public int currentSentenceCounter = 0;
 
     bool isTalking = false;
 
-    private void Start()
+    public void Spawn()
     {
         dialogue = new Dialog();
 
@@ -31,14 +31,27 @@ public class DialogTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (isTalking && Input.GetMouseButtonDown(0))
         {
             TriggerDialogue();
         }
     }
 
+    public void EndDialog()
+    {
+        isTalking = false;
+        priestDM.dialogBox.enabled = false;
+        priestDM.nameText.enabled = false;
+        priestDM.dialogueText.enabled = false;
+
+        peopleDM.dialogBox.enabled = false;
+        peopleDM.nameText.enabled = false;
+        peopleDM.dialogueText.enabled = false;
+    }
+
     public void TriggerDialogue()
     {
+        isTalking = true;
         priestDM.dialogBox.enabled = false;
         priestDM.nameText.enabled = false;
         priestDM.dialogueText.enabled = false;
@@ -48,15 +61,18 @@ public class DialogTrigger : MonoBehaviour
         peopleDM.dialogueText.enabled = false;
 
         Sentence sentence = new Sentence();
-        sentence = dialogue.sentences[currentSentenceCounter];
+        if (currentSentenceCounter < dialogue.sentences.Length)
+        {
+            sentence = dialogue.sentences[currentSentenceCounter];
        
-        if (sentence.isPriest)
-        {
-            priestDM.StartDialogue(sentence, "Priest");
-        }
-        else
-        {
-            peopleDM.StartDialogue(sentence, dialogue.name);
+            if (sentence.isPriest)
+            {
+                priestDM.StartDialogue(sentence, "Priest");
+            }
+            else
+            {
+                peopleDM.StartDialogue(sentence, dialogue.name);
+            }
         }
         currentSentenceCounter++;
     }
@@ -66,6 +82,7 @@ public class DialogTrigger : MonoBehaviour
         dialogueID = 1;
         // Path.Combine combines strings into a file path
         // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
+
         string filePath = System.IO.Path.Combine(Application.persistentDataPath, "Dialog_" + dialogueID.ToString() + ".json");
         Debug.Log(filePath);
         
