@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour {
 
-	public void LoadNextScene()
+    public Animator animator;
+
+    public void StartFadeIn()
+    {
+        animator.SetTrigger("FadeIn");
+    }
+    public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }

@@ -8,6 +8,12 @@ public class PlayStarter : MonoBehaviour {
 
     public void StartGame()
     {
+        DataHandler.Init();
         SceneManager.LoadScene(1);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
