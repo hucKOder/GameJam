@@ -6,9 +6,25 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour {
 
     public Animator animator;
+    bool nextScene = false;
+    AudioSource audioSource;
+
+    private void Start()
+    {
+        audioSource = GameObject.Find("Canvas").GetComponent<AudioSource>();    
+    }
+
+    private void Update()
+    {
+        if (nextScene)
+        {
+            audioSource.volume -= 1f * Time.deltaTime;
+        }
+    }
 
     public void StartFadeIn()
     {
+        nextScene = true;
         animator.SetTrigger("FadeIn");
     }
     public void LoadNextScene()

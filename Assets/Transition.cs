@@ -6,11 +6,13 @@ public class Transition : MonoBehaviour {
 
     public float transitionTime = 5f;
     public SceneController sceneController;
+    AudioSource audioSource;
 
     private float timer;
 
     private void Start()
     {
+        audioSource = GameObject.Find("Canvas").GetComponent<AudioSource>();
         timer = Time.time + transitionTime;
     }
 
@@ -18,7 +20,11 @@ public class Transition : MonoBehaviour {
     void Update () {
 		if (timer < Time.time)
         {
+            audioSource.volume -= 1f * Time.deltaTime;
+        }
+        if (audioSource.volume == 0f)
+        {
             sceneController.LoadNextScene();
         }
-	}
+    }
 }

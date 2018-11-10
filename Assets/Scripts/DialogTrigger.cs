@@ -79,26 +79,10 @@ public class DialogTrigger : MonoBehaviour
 
     private void LoadDialogData()
     {
-        dialogueID = 1;
-        // Path.Combine combines strings into a file path
-        // Application.StreamingAssets points to Assets/StreamingAssets in the Editor, and the StreamingAssets folder in a build
 
-        string filePath = System.IO.Path.Combine(Application.persistentDataPath, "Dialog_" + dialogueID.ToString() + ".json");
-        Debug.Log(filePath);
-        
-        if (File.Exists(filePath))
-        {
-            // Read the json from the file into a string
-            using (StreamReader stream = new StreamReader(filePath))
-            {
-                string json = stream.ReadToEnd();
-                // Pass the json to JsonUtility, and tell it to create a GameData object from it
-                dialogue = JsonUtility.FromJson<Dialog>(json);
-            }
-        }
-        else
-        {
-            Debug.LogError("Cannot load game data!");
-        }
+        var dialogues = DataHandler.DialogJSONS;
+        int numberOfDialogues = dialogues.Count;
+
+        dialogue = dialogues[Random.Range(0, numberOfDialogues)];
     }
 }
