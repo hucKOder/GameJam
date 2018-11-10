@@ -90,6 +90,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 0.01
+  onDeathEffectPrefab: {fileID: 1107867535975996, guid: b8e64d86b43564f4d83c47191fee16fd,
+    type: 2}
+  chargeDistance: 1
+  chargeStartDistance: 0.5
+  chargeCastTime: 1.5
+  chargeSpeed: 0.2
+  timeToSetDistance: 0.2
+  afterDashTime: 0.4
+  currentState: 1
 --- !u!212 &212149721992893376
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -126,7 +135,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 808dcf1fcb2a45d40b5bab3bd4a1f50b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.4764151, b: 0.4764151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
