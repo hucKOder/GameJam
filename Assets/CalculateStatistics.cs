@@ -16,6 +16,11 @@ public class CalculateStatistics : MonoBehaviour {
         Followers();
         Affection();
 
+        if (DataHandler.WasInMinigame)
+        {
+            DataHandler.EnemiesKilledAllTime += DataHandler.KilledDemons;
+        }
+
         DataHandler.Reward = new int[4] { 0, 0, 0, 0 };
         DataHandler.Penalty = new int[4] { 0, 0, 0, 0 };
     }

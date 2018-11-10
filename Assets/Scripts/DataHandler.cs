@@ -19,6 +19,7 @@ public static class DataHandler
     private static int[] reward = new int[4] { 0, 0, 0, 0 };
     private static int[] penalty = new int[4] { 0, 0, 0, 0 };
     private static int weatherChoice = 0;
+    private static int enemiesKilledAllTime = 0;
 
     public static List<Dialog> DialogJSONS
     {
@@ -160,6 +161,18 @@ public static class DataHandler
         set
         {
             reward = value;
+        }
+    }
+
+    public static int EnemiesKilledAllTime
+    {
+        get
+        {
+            return enemiesKilledAllTime;
+        }
+        set
+        {
+            enemiesKilledAllTime = value;
         }
     }
 

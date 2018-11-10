@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class CameraHandler : MonoBehaviour {
 
     public Image prayerBox;
+    public Text followersText;
+    public Text affectionText;
 
     private bool transitionReady = false;
     [HideInInspector]
@@ -14,6 +16,8 @@ public class CameraHandler : MonoBehaviour {
     public bool selectChoice = false;
     // Use this for initialization
     void Start () {
+        affectionText.text = (DataHandler.GodsAffection * 100).ToString() + "%";
+        followersText.text = DataHandler.Followers.ToString() + " followers";
     }
 	
 	// Update is called once per frame

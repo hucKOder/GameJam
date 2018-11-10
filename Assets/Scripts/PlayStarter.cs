@@ -18,6 +18,7 @@ public class PlayStarter : MonoBehaviour {
     public void StartGame()
     {
         startGame = true;
+        DataHandler.Init();
         //DataHandler.Init();
         //SceneManager.LoadScene(1);
     }
@@ -30,7 +31,6 @@ public class PlayStarter : MonoBehaviour {
         }
         if (audioSource.volume == 0f)
         {
-            DataHandler.Init();
             SceneManager.LoadScene(1);
         }
     }
