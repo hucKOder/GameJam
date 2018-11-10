@@ -6,6 +6,8 @@ public class SpawnPriests : MonoBehaviour {
 
     public CameraHandler cameraHandler;
 
+    public List<GameObject> peasants;
+
     public GameObject peasantPrefab;
     public int numberOfPeasants = 3;
     public Transform destination;
@@ -19,8 +21,10 @@ public class SpawnPriests : MonoBehaviour {
     public float minSpeed = 0.01f;
     public float maxSpeed = 0.02f;
 
+    int currentPeasant = 0;
+
     DialogTrigger dialogTrigger;
-    
+    private bool inDialog = false;
 
     private bool peasantsSpawned = false;
 
@@ -29,27 +33,66 @@ public class SpawnPriests : MonoBehaviour {
         if (!peasantsSpawned && cameraHandler.gameIsReady) {
             SpawnPeasants();
             peasantsSpawned = true;
-        }  
-	}
+        }
+        if (currentPeasant != peasants.Count)
+        {
+            if (peasantsSpawned && !inDialog && Vector3.Distance(peasants[currentPeasant].transform.position, destination.position) <= 0.1)
+            {
+                inDialog = true;
+                StartDialog(peasants[currentPeasant]);
+            }
+            else if (peasantsSpawned)
+            {
+                peasants[currentPeasant].GetComponent<MovementHandler>().destination = destination.position;
+            }
+            if (peasantsSpawned && inDialog)
+            {
+                if (dialogTrigger.dialogue.sentences.Length + 1 == dialogTrigger.currentSentenceCounter)
+                {
+                    dialogTrigger.EndDialog();
+                    inDialog = false;
+                    peasants[currentPeasant].GetComponent<MovementHandler>().destination = spawnPoint.position;
+                    for (var i = peasants.Count - 1; i > currentPeasant + 1; i--)
+                    {
+                        peasants[i].GetComponent<MovementHandler>().destination.x = peasants[i - 1].GetComponent<MovementHandler>().destination.x;
+                    }
+                    peasants[currentPeasant].transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+                    currentPeasant++;
+                }
+            }
+        }
+        if (peasantsSpawned && currentPeasant == peasants.Count)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                cameraHandler.selectChoice = true;
+            }
+        }
+    }
 
     void SpawnPeasants()
     {
+        peasants = new List<GameObject>();
+
         for (var i = 0; i < numberOfPeasants; i++)
         {
-            var peasant = Instantiate(peasantPrefab, spawnPoint.position + new Vector3(i * spawnOffset, 0, 0), Quaternion.LookRotation(-Vector3.forward, Vector3.up));
+            GameObject peasant = Instantiate(peasantPrefab, spawnPoint.position + new Vector3(i * spawnOffset, 0, 0), Quaternion.LookRotation(-Vector3.forward, Vector3.up));
             MovementHandler movementHandler = peasant.GetComponent<MovementHandler>();
+            peasants.Add(peasant);
 
             if (movementHandler != null)
             {
-                if (i == 0)
-                {
-                    dialogTrigger = peasant.AddComponent<DialogTrigger>();
-                }
-
                 float speed = Random.Range(minSpeed, maxSpeed);
                 movementHandler.speed = speed;
-                movementHandler.destination = destination.position + new Vector3(i * positionOffset/numberOfPeasants + Random.Range(-randomOffsetX,randomOffsetX), Random.Range(-randomOffsetY, randomOffsetY) * numberOfPeasants, 0);
+                movementHandler.destination = destination.position + new Vector3(i * positionOffset / numberOfPeasants + Random.Range(-randomOffsetX, randomOffsetX), Random.Range(-randomOffsetY, randomOffsetY) * numberOfPeasants, 0);
             }
         }
+    }
+
+    void StartDialog(GameObject peasant)
+    {
+        dialogTrigger = peasant.AddComponent<DialogTrigger>();
+        dialogTrigger.Spawn();
+        dialogTrigger.TriggerDialogue();
     }
 }
