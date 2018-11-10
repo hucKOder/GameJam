@@ -81,6 +81,11 @@ public class VisualHandler : MonoBehaviour
 
     private bool init = false;
 
+    void Awake() 
+    {
+        VisualProvider = GameObject.FindWithTag("BodyParts");
+    }
+
     // Use this for initialization
     void Start()
     {

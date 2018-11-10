@@ -154,6 +154,7 @@ public class EnemyHandler : MonoBehaviour
                     currentState = State.DEATH;
                     Destroy(GetComponent<Rigidbody2D>());
                     Destroy(GetComponent<BoxCollider2D>());
+                    DataHandler.KilledDemons++;
                 }
                 else
                 {

@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -399,12 +399,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a06473789265ba741982dbc8ecf163b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 0}
+  animator: {fileID: 592327268}
   state: 0
   dashTimeout: 0.3
   dashRecoveryTime: 0.15
   dashMaxLength: 1
   dashSpeed: 0.4
+  sceneController: {fileID: 1117414143}
   movementSpeed: 0.02
 --- !u!210 &592327265
 SortingGroup:
@@ -720,6 +721,47 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1117414142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117414144}
+  - component: {fileID: 1117414143}
+  m_Layer: 0
+  m_Name: SceneController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1117414143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1117414142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0e7937c8d49d1499cb73fb5e59908d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+--- !u!4 &1117414144
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1117414142}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.004999999, y: 0.030000001, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1278934656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1272,13 +1314,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d0ea132cf5080e4ca1ed1f884baeee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minEnemies: 50
+  minEnemies: 2
   enemiesCoeff: 4
   spawnRadius: 2.5
   spawnAtBeginning: 3
   spawnCoolDown: 1.5
   enemyPrefab: {fileID: 1720052453714708, guid: 34a8b75a92dbb4f1885b47e322d67a08,
     type: 2}
+  sceneController: {fileID: 1117414143}
 --- !u!4 &1759430779
 Transform:
   m_ObjectHideFlags: 0

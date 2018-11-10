@@ -2516,9 +2516,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1418993078}
   - component: {fileID: 1418993079}
+  - component: {fileID: 1418993080}
   m_Layer: 0
   m_Name: PriestSpawner
-  m_TagString: Untagged
+  m_TagString: BodyParts
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2549,7 +2550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraHandler: {fileID: 293707719}
   peasants: []
-  peasantPrefab: {fileID: 1851929666235188, guid: 2f0910c58bb33644a96b6d872b0ba15c,
+  peasantPrefab: {fileID: 1713798801630108, guid: db57d7d637cd04bd59abfeec09761259,
     type: 2}
   numberOfPeasants: 1
   destination: {fileID: 784418654}
@@ -2560,6 +2561,45 @@ MonoBehaviour:
   spawnOffset: 1.5
   minSpeed: 0.03
   maxSpeed: 0.04
+--- !u!114 &1418993080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418993077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78a33d4a6acfb4bb798bdf8bc0dbcaee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  heads:
+  - {fileID: 21300002, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
+  heads_back:
+  - {fileID: 21300028, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
+  chests:
+  - {fileID: 21300004, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
+  chests_back:
+  - {fileID: 21300006, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
+  pelvises:
+  - {fileID: 21300018, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
+  pelvises_back:
+  - {fileID: 21300016, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
+  upper_arms_r:
+  - {fileID: 21300010, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
+  upper_arms_l:
+  - {fileID: 21300008, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
+  forearms_r:
+  - {fileID: 21300020, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
+  forearms_l:
+  - {fileID: 21300020, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
+  thighs_r:
+  - {fileID: 21300020, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
+  thighs_l:
+  - {fileID: 21300024, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
+  calves_r:
+  - {fileID: 21300008, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
+  calves_l:
+  - {fileID: 21300012, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
 --- !u!1 &1463180639
 GameObject:
   m_ObjectHideFlags: 0

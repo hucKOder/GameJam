@@ -22,6 +22,7 @@ public class FighterHandler : MonoBehaviour
     public float dashRecoveryTime = 0.15f; // invincible frame after dash
     public float dashMaxLength = 1f;
     public float dashSpeed = 0.4f;
+    public SceneController sceneController;
 
     public float movementSpeed = 0.02f;
 
@@ -122,7 +123,16 @@ public class FighterHandler : MonoBehaviour
             {
                 state = PlayerState.Dead;
                 //GetComponent<SpriteRenderer>().color = Color.red;
+                StartCoroutine(transition());
             }
         }
     }
+
+    IEnumerator transition()
+    {
+        yield return new WaitForSeconds(2f);
+        sceneController.LoadNextScene();
+    }
 }
+
+
