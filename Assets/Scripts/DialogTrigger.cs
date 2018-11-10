@@ -84,5 +84,15 @@ public class DialogTrigger : MonoBehaviour
         int numberOfDialogues = dialogues.Count;
 
         dialogue = dialogues[Random.Range(0, numberOfDialogues)];
+
+        DataHandler.Reward[dialogue.weather] += dialogue.reward;
+        for (var i = 0; i < 4; i++)
+        {
+            if (dialogue.weather == i)
+            {
+                continue;
+            }
+            DataHandler.Penalty[i] += dialogue.penalty;
+        }
     }
 }
