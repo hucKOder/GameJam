@@ -15,6 +15,9 @@ public class CalculateStatistics : MonoBehaviour {
         Weather();
         Followers();
         Affection();
+
+        DataHandler.Reward = new int[4] { 0, 0, 0, 0 };
+        DataHandler.Penalty = new int[4] { 0, 0, 0, 0 };
     }
 
     private void Affection()
@@ -85,6 +88,6 @@ public class CalculateStatistics : MonoBehaviour {
 
     public void GenerateNewWeather()
     {
-        DataHandler.Forecast = UnityEngine.Random.Range(0, 3);
+        DataHandler.Forecast = UnityEngine.Random.Range(0, 4);
     } 
 }
