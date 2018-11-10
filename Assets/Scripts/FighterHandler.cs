@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fighter : MonoBehaviour {
+public class FighterHandler : MonoBehaviour {
 
     public float dashTimeout = 0.3f;
     public float dashMaxLength = 1f;
@@ -44,7 +44,7 @@ public class Fighter : MonoBehaviour {
         if (isDashing)
         {
             transform.position = Vector2.MoveTowards(transform.position, dashPosition, dashSpeed);
-            if (Equals(transform.position, dashPosition))
+            if (Vector2.Distance(transform.position, dashPosition) < 0.1)
             {
                 isDashing = false;
             }
@@ -57,7 +57,8 @@ public class Fighter : MonoBehaviour {
         {
             if (isDashing)
             {
-                Destroy(other.gameObject);
+                var enemyHandler = other.GetComponent<EnemyHandler>();
+                enemyHandler.Die();
             }
             else
             {
