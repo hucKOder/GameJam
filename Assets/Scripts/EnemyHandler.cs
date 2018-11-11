@@ -157,7 +157,10 @@ public class EnemyHandler : MonoBehaviour
                 {
                     afterDashTimer = Time.time + dashRecoveryTime;
                     currentState = State.AFTER_DASH;
-                    GetComponent<AudioSource>().Play();
+                    var rand = Random.Range(0, enHit.Length);
+                    var ass = GetComponent<AudioSource>();
+                    ass.clip = enDash[rand];
+                    ass.Play();
                 }
             }
             // end dash
@@ -172,15 +175,21 @@ public class EnemyHandler : MonoBehaviour
             }
             else if (currentState == State.HIT && hitRecoveryTimer < Time.time)
             {
+                var rand = Random.Range(0, enHit.Length);
+                var ass = GetComponent<AudioSource>();
                 if (Health <= 0)
                 {
                     currentState = State.DEATH;
                     Destroy(GetComponent<Rigidbody2D>());
                     Destroy(GetComponent<BoxCollider2D>());
                     DataHandler.KilledDemons++;
+                    ass.clip = enDead[rand];
+                    ass.Play();
                 }
                 else
                 {
+                    ass.clip = enHit[rand];
+                    ass.Play();
                     currentState = State.IDLE;
                 }
             }

@@ -241,6 +241,15 @@ MonoBehaviour:
   hitRecoveryTime: 0.3
   spawnTime: 10
   currentState: 1
+  enDead:
+  - {fileID: 8300000, guid: 202015e9abd8c4f5d94fa2bffa48d743, type: 3}
+  - {fileID: 8300000, guid: 00fd77fb59ac7476294673b84902a09c, type: 3}
+  enDash:
+  - {fileID: 8300000, guid: 976ba3535bc344eb282d8a150dcc11ca, type: 3}
+  - {fileID: 8300000, guid: 6d112218eb00046d78937224f188219a, type: 3}
+  enHit:
+  - {fileID: 8300000, guid: a3fb4843b620a4847bd714a7f6335021, type: 3}
+  - {fileID: 8300000, guid: 24f293103b52a4e63acb067449ac28bb, type: 3}
 --- !u!212 &212104199720926936
 SpriteRenderer:
   m_ObjectHideFlags: 1

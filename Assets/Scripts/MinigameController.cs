@@ -34,7 +34,6 @@ public class MinigameController : MonoBehaviour {
             var demon = Instantiate(enemyPrefab, circle * spawnRadius, Quaternion.identity);
             var rand = Random.Range(0, demon.GetComponent<EnemyHandler>().enDash.Length);
             var ass = demon.GetComponent<AudioSource>();
-            Debug.Log(ass);
             ass.clip = demon.GetComponent<EnemyHandler>().enDash[rand];
             ass.Play();
             spawnedDemons++;
@@ -51,10 +50,8 @@ public class MinigameController : MonoBehaviour {
             Vector2 circle = Random.insideUnitCircle;
             circle.Normalize();
             var demon = Instantiate(enemyPrefab, circle * spawnRadius + (Vector2)fighter.position, Quaternion.identity);
-
             var rand = Random.Range(0, demon.GetComponent<EnemyHandler>().enDash.Length);
             var ass = demon.GetComponent<AudioSource>();
-            Debug.Log(ass);
             ass.clip = demon.GetComponent<EnemyHandler>().enDash[rand];
             ass.Play();
 
