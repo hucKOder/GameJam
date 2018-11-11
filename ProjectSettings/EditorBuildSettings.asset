@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Statistic scene.unity
     guid: fbb9eddfdc0c75c499afbee40e69bb4c
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 95dde4175b0af5b4ba7be8d72853dec3
   m_configObjects: {}
