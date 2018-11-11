@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 95936452316919584}
   - component: {fileID: 114956708869369160}
   - component: {fileID: 114428672068244612}
+  - component: {fileID: 210994436193890478}
   m_Layer: 0
   m_Name: newPeasant
   m_TagString: Fighter
@@ -473,9 +474,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   VisualProvider: {fileID: 0}
-  headID: 0
-  chestID: 0
-  legsID: 0
+  sortingGroup: {fileID: 0}
+  color: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 0}
+  headID: 1
+  chestID: 1
+  legsID: 1
   HeadNode: {fileID: 1725126466717736}
   ChestNode: {fileID: 1728586330321008}
   UpperArmNodeR: {fileID: 1556396315840420}
@@ -487,6 +490,16 @@ MonoBehaviour:
   ThighNodeL: {fileID: 1047955862107904}
   CalfNodeR: {fileID: 1551984732136606}
   CalfNodeL: {fileID: 1104571031935516}
+--- !u!210 &210994436193890478
+SortingGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713798801630108}
+  m_Enabled: 1
+  m_SortingLayerID: -1820836651
+  m_SortingLayer: 1
+  m_SortingOrder: 0
 --- !u!212 &212047145217133878
 SpriteRenderer:
   m_ObjectHideFlags: 1

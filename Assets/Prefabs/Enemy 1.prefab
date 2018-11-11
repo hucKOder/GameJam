@@ -134,7 +134,7 @@ MonoBehaviour:
   Animator: {fileID: 95744517933155860}
   Health: 2
   movementSpeed: 0.01
-  onDeathEffectPrefab: {fileID: 1107867535975996, guid: b8e64d86b43564f4d83c47191fee16fd,
+  onDeathEffectPrefab: {fileID: 1615699894794724, guid: 7af4e5b71ad2e4e5dbdf67ef98f55f15,
     type: 2}
   chargeDistance: 1
   chargeStartDistance: 0.8
@@ -143,6 +143,7 @@ MonoBehaviour:
   timeToSetDistance: 0.3
   dashRecoveryTime: 0.4
   hitRecoveryTime: 0.3
+  spawnTime: 10
   currentState: 1
 --- !u!212 &212104199720926936
 SpriteRenderer:

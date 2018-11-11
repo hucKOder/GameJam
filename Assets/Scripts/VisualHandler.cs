@@ -10,6 +10,8 @@ public class VisualHandler : MonoBehaviour
     public GameObject VisualProvider;
     public SortingGroup sortingGroup;
 
+    public Color color = new Color(0.8f, 0.8f, 0.8f);
+
     public int headID = 0;
     public int chestID = 0;
     public int legsID = 0;
@@ -46,6 +48,10 @@ public class VisualHandler : MonoBehaviour
     {
         sortingGroup = GetComponent<SortingGroup>();
         SetVisuals();
+        var sprites = GetComponentsInChildren<SpriteRenderer>();
+        Debug.Log(sprites.Length);
+        foreach (SpriteRenderer sprite in sprites)
+            sprite.color = color;
     }
 
     public void SetVisuals()

@@ -24,6 +24,8 @@ public class FighterHandler : MonoBehaviour
 
     public Animator animator;
 
+    public GameObject onDeathPrefab;
+
     public PlayerState state;
 
     public Weapon weapon;
@@ -145,6 +147,7 @@ public class FighterHandler : MonoBehaviour
             }
             else
             {
+                Instantiate(onDeathPrefab, transform.position, Quaternion.identity);
                 state = PlayerState.Dead;
                 //GetComponent<SpriteRenderer>().color = Color.red;
                 StartCoroutine(transition());
