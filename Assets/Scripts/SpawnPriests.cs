@@ -12,6 +12,8 @@ public class SpawnPriests : MonoBehaviour {
     public int numberOfPeasants = 3;
     public Transform destination;
     public Transform spawnPoint;
+    public GameObject godWill;
+    public SceneController sceneController;
 
     public float positionOffset = 0.3f;
     public float randomOffsetX = 0.1f;
@@ -27,50 +29,66 @@ public class SpawnPriests : MonoBehaviour {
     private bool inDialog = false;
 
     private bool peasantsSpawned = false;
+    private bool isGameOver = false;
 
     void Start()
     {
         numberOfPeasants = Random.Range(1, 4);
+        
+        if (DataHandler.Followers <= 0 || DataHandler.Followers > 100 || DataHandler.GodsAffection <= 0)
+        {
+            isGameOver = true;
+            godWill.SetActive(true);
+            godWill.GetComponent<GodWill>().FinishHim();
+            StartCoroutine(triggerGameOver());
+        } 
     }
 
     // Update is called once per frame
     void Update () {
-        if (!peasantsSpawned && cameraHandler.gameIsReady) {
-            SpawnPeasants();
-            peasantsSpawned = true;
-        }
-        if (currentPeasant != peasants.Count)
+        if (isGameOver)
         {
-            if (peasantsSpawned && !inDialog && Vector3.Distance(peasants[currentPeasant].transform.position, destination.position) <= 0.1)
-            {
-                inDialog = true;
-                StartDialog(peasants[currentPeasant]);
+            
+        }
+        else
+        {
+            if (!peasantsSpawned && cameraHandler.gameIsReady) {
+                SpawnPeasants();
+                peasantsSpawned = true;
             }
-            else if (peasantsSpawned)
+            if (currentPeasant != peasants.Count)
             {
-                peasants[currentPeasant].GetComponent<MovementHandler>().destination = destination.position;
-            }
-            if (peasantsSpawned && inDialog)
-            {
-                if (dialogTrigger.dialogue.sentences.Length + 1 == dialogTrigger.currentSentenceCounter)
+                if (peasantsSpawned && !inDialog && Vector3.Distance(peasants[currentPeasant].transform.position, destination.position) <= 0.1)
                 {
-                    dialogTrigger.EndDialog();
-                    inDialog = false;
-                    peasants[currentPeasant].GetComponent<MovementHandler>().destination = spawnPoint.position;
-                    for (var i = peasants.Count - 1; i > currentPeasant + 1; i--)
+                    inDialog = true;
+                    StartDialog(peasants[currentPeasant]);
+                }
+                else if (peasantsSpawned)
+                {
+                    peasants[currentPeasant].GetComponent<MovementHandler>().destination = destination.position;
+                }
+                if (peasantsSpawned && inDialog)
+                {
+                    if (dialogTrigger.dialogue.sentences.Length + 1 == dialogTrigger.currentSentenceCounter)
                     {
-                        peasants[i].GetComponent<MovementHandler>().destination.x = peasants[i - 1].GetComponent<MovementHandler>().destination.x;
+                        dialogTrigger.EndDialog();
+                        inDialog = false;
+                        peasants[currentPeasant].GetComponent<MovementHandler>().destination = spawnPoint.position;
+                        for (var i = peasants.Count - 1; i > currentPeasant + 1; i--)
+                        {
+                            peasants[i].GetComponent<MovementHandler>().destination.x = peasants[i - 1].GetComponent<MovementHandler>().destination.x;
+                        }
+                        peasants[currentPeasant].transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+                        currentPeasant++;
                     }
-                    peasants[currentPeasant].transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
-                    currentPeasant++;
                 }
             }
-        }
-        if (peasantsSpawned && currentPeasant == peasants.Count)
-        {
-            if (Input.GetMouseButtonDown(0))
+            if (peasantsSpawned && currentPeasant == peasants.Count)
             {
-                cameraHandler.selectChoice = true;
+                if (Input.GetMouseButtonDown(0))
+                {
+                    cameraHandler.selectChoice = true;
+                }
             }
         }
     }
@@ -99,5 +117,11 @@ public class SpawnPriests : MonoBehaviour {
         dialogTrigger = peasant.AddComponent<DialogTrigger>();
         dialogTrigger.Spawn();
         dialogTrigger.TriggerDialogue();
+    }
+
+    IEnumerator triggerGameOver()
+    {
+        yield return new WaitForSeconds(7f);
+        sceneController.LoadSceneWithIndex(5);
     }
 }
