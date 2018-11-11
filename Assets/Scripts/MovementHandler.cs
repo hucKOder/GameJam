@@ -16,7 +16,6 @@ public class MovementHandler : MonoBehaviour {
 	void Update () {
         transform.position = Vector2.MoveTowards(transform.position, destination, speed);
         
-        Debug.Log(transform.position.x);
         if (transform.position.x <= destination.x) {
         	GetComponent<Animator>().SetInteger("State", 0);
         }
