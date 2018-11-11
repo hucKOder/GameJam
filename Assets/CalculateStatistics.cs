@@ -25,6 +25,7 @@ public class CalculateStatistics : MonoBehaviour {
         DataHandler.Penalty = new int[4] { 0, 0, 0, 0 };
 
         DataHandler.Day++;
+        DataHandler.WasInMinigame = false;
     }
 
     private void Affection()

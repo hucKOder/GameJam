@@ -7,6 +7,7 @@ public class SceneController : MonoBehaviour {
 
     public Animator animator;
     bool nextScene = false;
+    int sceneID = -1;
     AudioSource audioSource;
 
     private void Start()
@@ -26,11 +27,25 @@ public class SceneController : MonoBehaviour {
         }
     }
 
-    public void StartFadeIn()
+    public void StartFadeIn(int sceneId)
     {
         nextScene = true;
+        sceneID = sceneId;
         animator.SetTrigger("FadeIn");
     }
+
+    public void LoadSceneBasedOnInternalIndex()
+    {
+        if (sceneID == -1)
+        {
+            LoadNextScene();
+        }
+        else
+        {
+            SceneManager.LoadScene(sceneID);
+        }
+    }
+
     public void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
