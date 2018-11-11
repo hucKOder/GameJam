@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MinigameController : MonoBehaviour {
-
     public int minEnemies = 2;
     public int enemiesCoeff = 4;
     public float spawnRadius = 2.5f;
@@ -11,9 +10,7 @@ public class MinigameController : MonoBehaviour {
     public float spawnCoolDown = 1.5f;
     public GameObject enemyPrefab;
     public SceneController sceneController;
-    public AudioClip[] enDead; 
-    public AudioClip[] enDash; 
-    public AudioClip[] enHit; 
+    
 
     private int spawnedDemons = 0;
     private int numberOfEnemies;
@@ -34,7 +31,12 @@ public class MinigameController : MonoBehaviour {
         {
             Vector2 circle = Random.insideUnitCircle;
             circle.Normalize();
-            Instantiate(enemyPrefab, circle * spawnRadius, Quaternion.identity);
+            var demon = Instantiate(enemyPrefab, circle * spawnRadius, Quaternion.identity);
+            var rand = Random.Range(0, demon.GetComponent<EnemyHandler>().enDash.Length);
+            var ass = demon.GetComponent<AudioSource>();
+            Debug.Log(ass);
+            ass.clip = demon.GetComponent<EnemyHandler>().enDash[rand];
+            ass.Play();
             spawnedDemons++;
         }
         spawnTimer = Time.time + spawnCoolDown;
@@ -48,7 +50,14 @@ public class MinigameController : MonoBehaviour {
         {
             Vector2 circle = Random.insideUnitCircle;
             circle.Normalize();
-            Instantiate(enemyPrefab, circle * spawnRadius + (Vector2)fighter.position, Quaternion.identity);
+            var demon = Instantiate(enemyPrefab, circle * spawnRadius + (Vector2)fighter.position, Quaternion.identity);
+
+            var rand = Random.Range(0, demon.GetComponent<EnemyHandler>().enDash.Length);
+            var ass = demon.GetComponent<AudioSource>();
+            Debug.Log(ass);
+            ass.clip = demon.GetComponent<EnemyHandler>().enDash[rand];
+            ass.Play();
+
             spawnedDemons++;
             spawnTimer = Time.time + spawnCoolDown;
         }

@@ -32,6 +32,9 @@ public class EnemyHandler : MonoBehaviour
     public float spawnTime = 10f;
 
     public State currentState = State.SPAWN;
+    public AudioClip[] enDead; 
+    public AudioClip[] enDash; 
+    public AudioClip[] enHit; 
 
     private GameObject fighter;
     private bool isPositionSet = false;
@@ -154,6 +157,7 @@ public class EnemyHandler : MonoBehaviour
                 {
                     afterDashTimer = Time.time + dashRecoveryTime;
                     currentState = State.AFTER_DASH;
+                    GetComponent<AudioSource>().Play();
                 }
             }
             // end dash
