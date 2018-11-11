@@ -20,6 +20,10 @@ public class SceneController : MonoBehaviour {
         {
             audioSource.volume -= 1f * Time.deltaTime;
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     public void StartFadeIn()
