@@ -8,17 +8,17 @@ public class GodWill : MonoBehaviour
     public GameObject priest;
     public GameObject gore;
 
-    private MovementHandler mh;
+    //private MovementHandler mh;
 
     // Use this for initialization
     void Start()
     {
-        mh = GetComponent<MovementHandler>();
+        
     }
 
     public void FinishHim()
     {
-        mh.destination = new Vector3(0.979f, 0.692f, 0);
+        GetComponent<MovementHandler>().destination = new Vector3(0.979f, 0.692f, 0);
     }
 
     private void OnTriggerEnter(Collider other)

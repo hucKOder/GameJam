@@ -121,7 +121,7 @@ public class SpawnPriests : MonoBehaviour {
 
     IEnumerator triggerGameOver()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(7f);
         sceneController.LoadSceneWithIndex(5);
     }
 }
