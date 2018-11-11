@@ -81,7 +81,7 @@ public class SpawnPriests : MonoBehaviour
                         {
                             peasants[i].GetComponent<MovementHandler>().destination.x = peasants[i - 1].GetComponent<MovementHandler>().destination.x;
                         }
-                        peasants[currentPeasant].transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+                        //peasants[currentPeasant].transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
                         currentPeasant++;
                     }
                 }
@@ -102,7 +102,7 @@ public class SpawnPriests : MonoBehaviour
 
         for (var i = 0; i < numberOfPeasants; i++)
         {
-            GameObject peasant = Instantiate(peasantPrefab, spawnPoint.position + new Vector3(i * spawnOffset, 0, 0), Quaternion.LookRotation(-Vector3.forward, Vector3.up));
+            GameObject peasant = Instantiate(peasantPrefab, spawnPoint.position + new Vector3(i * spawnOffset, 0, 0), Quaternion.LookRotation(Vector3.forward, Vector3.up));
             var visHandler = peasant.GetComponent<VisualHandler>();
             if (visHandler)
             {
