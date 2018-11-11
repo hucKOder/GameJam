@@ -28,6 +28,11 @@ public class SpawnPriests : MonoBehaviour {
 
     private bool peasantsSpawned = false;
 
+    void Start()
+    {
+        numberOfPeasants = Random.Range(1, 4);
+    }
+
     // Update is called once per frame
     void Update () {
         if (!peasantsSpawned && cameraHandler.gameIsReady) {

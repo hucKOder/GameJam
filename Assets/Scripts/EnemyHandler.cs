@@ -203,6 +203,5 @@ public class EnemyHandler : MonoBehaviour
         hitRecoveryTimer = Time.time + hitRecoveryTime;
         currentState = State.HIT;
         Health--;
-
     }
 }
