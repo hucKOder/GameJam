@@ -13,8 +13,8 @@ public static class DataHandler
     private static bool wasInMinigame = false;
     private static int numberOfDemons;
     private static int killedDemons;
-    private static int day;
-    private static int weather;
+    private static int day = 1;
+    private static int weather = 3;
     private static int forecast = 0;
     private static int[] reward = new int[4] { 0, 0, 0, 0 };
     private static int[] penalty = new int[4] { 0, 0, 0, 0 };
