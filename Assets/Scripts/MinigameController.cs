@@ -11,6 +11,9 @@ public class MinigameController : MonoBehaviour {
     public float spawnCoolDown = 1.5f;
     public GameObject enemyPrefab;
     public SceneController sceneController;
+    public AudioClip[] enDead; 
+    public AudioClip[] enDash; 
+    public AudioClip[] enHit; 
 
     private int spawnedDemons = 0;
     private int numberOfEnemies;

@@ -39,6 +39,8 @@ public class FighterHandler : MonoBehaviour
     public float dashMaxLength = 1f;
     public float dashSpeed = 0.4f;
     public SceneController sceneController;
+    public AudioClip[] att; 
+
 
     public float movementSpeed = 0.02f;
 
@@ -66,11 +68,13 @@ public class FighterHandler : MonoBehaviour
     {
         animator.SetInteger("State", (int)state);
 
+        //DEAD
         if (state == PlayerState.Dead)
         {
             return;
         }
 
+        //BEH
         if (state != PlayerState.Hit
             && state != PlayerState.Dash
             && dashTimer < Time.time
@@ -87,6 +91,7 @@ public class FighterHandler : MonoBehaviour
                 visualHandler.SetDireciton(hitPoint);
             }
         }
+        //PRIPRAVA NA DASH
         if (state != PlayerState.Hit
             && state != PlayerState.Dash
             && dashTimer < Time.time
@@ -114,9 +119,11 @@ public class FighterHandler : MonoBehaviour
                 invincible = true;
             }
         }
+        //DASH
         if (state == PlayerState.Dash)
         {
             transform.position = Vector2.MoveTowards(transform.position, dashPosition, dashSpeed);
+            
             if (Vector2.Distance(transform.position, dashPosition) < 0.1)
             {
                 dashRecoveryTimer = Time.time + dashRecoveryTime;
@@ -144,6 +151,10 @@ public class FighterHandler : MonoBehaviour
             {
                 var enemyHandler = other.GetComponent<EnemyHandler>();
                 enemyHandler.Hit();
+                var rand = Random.Range(0, att.Length);
+                var ass = GetComponent<AudioSource>();
+                ass.clip = att[rand];
+                ass.Play();
             }
             else
             {
