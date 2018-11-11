@@ -6,55 +6,9 @@ using UnityEngine.Rendering;
 
 public class VisualHandler : MonoBehaviour
 {
-    public enum Direction
-    {
-        N = 0,
-        W = 1,
-        S = 2,
-        E = 3,
-    }
 
     public GameObject VisualProvider;
     public SortingGroup sortingGroup;
-
-    private Direction _direction = Direction.E;
-    public Direction direction
-    {
-        set
-        {
-            if (value == Direction.N && !lookingUp)
-            {
-                LookUp();
-                lookingUp = true;
-            }
-
-            if (value == Direction.S && lookingUp)
-            {
-                LookDown();
-                lookingUp = false;
-            }
-
-            if (value == Direction.W && !lookingLeft)
-            {
-                LookLeft();
-                lookingLeft = true;
-            }
-
-            if (value == Direction.E && lookingLeft)
-            {
-                LookRight();
-                lookingLeft = false;
-            }
-        }
-        get
-        {
-            return _direction;
-        }
-
-    }
-
-    private bool lookingUp = false;
-    private bool lookingLeft = false;
 
     public int headID = 0;
     public int chestID = 0;
@@ -80,8 +34,6 @@ public class VisualHandler : MonoBehaviour
     private Sprite pelvis;
     private Sprite pelvis_back;
 
-
-    private bool init = false;
 
     void Awake()
     {
@@ -146,12 +98,20 @@ public class VisualHandler : MonoBehaviour
 
     public void LookLeft()
     {
-        transform.localScale.Set(-1.0f, transform.localScale.y, transform.localScale.z);
+        Vector3 theScale = transform.localScale;
+        if (theScale.x > 0)
+            theScale.x *= -1;
+        transform.localScale = theScale;
+        //transform.localRotation = Quaternion.Euler(0, 180, 0);
     }
 
     public void LookRight()
     {
-        transform.localScale.Set(1.0f, transform.localScale.y, transform.localScale.z);
+        Vector3 theScale = transform.localScale;
+        if (theScale.x < 0)
+            theScale.x *= -1;
+        transform.localScale = theScale;
+        //transform.localRotation = Quaternion.Euler(0, 0, 0);
     }
 
     public void Update()
@@ -164,27 +124,22 @@ public class VisualHandler : MonoBehaviour
 
         var diff = target - transform.position;
 
-        if (Mathf.Abs(diff.x) > Mathf.Abs(diff.y))
+        if (diff.x > 0)
         {
-            if (diff.x > 0)
-            {
-                direction = Direction.E;
-            }
-            else
-            {
-                direction = Direction.W;
-            }
+            LookRight();
         }
         else
         {
-            if (diff.y > 0)
-            {
-                direction = Direction.N;
-            }
-            else
-            {
-                direction = Direction.S;
-            }
+            LookLeft();
+        }
+
+        if (diff.y > 0)
+        {
+            LookUp();
+        }
+        else
+        {
+            LookDown();
         }
 
     }
