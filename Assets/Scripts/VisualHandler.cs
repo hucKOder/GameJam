@@ -48,10 +48,10 @@ public class VisualHandler : MonoBehaviour
     {
         sortingGroup = GetComponent<SortingGroup>();
         SetVisuals();
-        var sprites = GetComponentsInChildren<SpriteRenderer>();
-        Debug.Log(sprites.Length);
-        foreach (SpriteRenderer sprite in sprites)
-            sprite.color = color;
+        //var sprites = GetComponentsInChildren<SpriteRenderer>();
+        //Debug.Log(sprites.Length);
+        //foreach (SpriteRenderer sprite in sprites)
+        //    sprite.color = color;
     }
 
     public void SetVisuals()
