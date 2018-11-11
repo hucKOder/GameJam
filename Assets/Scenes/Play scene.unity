@@ -723,12 +723,13 @@ MonoBehaviour:
   prayerBox: {fileID: 1070370469}
   followersText: {fileID: 1531866254}
   affectionText: {fileID: 1394637921}
+  weatherSprite: {fileID: 1666042390}
+  dayText: {fileID: 1180706003}
   actualWeather:
   - {fileID: 21300000, guid: 6f1c80129cb086a4cae2c3f09b5087c8, type: 3}
   - {fileID: 21300000, guid: 97c4e65bb15e040e78e2d2ff02e9c413, type: 3}
   - {fileID: 21300000, guid: c0db2796953b3489ba8941d7f6c5125f, type: 3}
   - {fileID: 21300000, guid: a655c534d18be403bb84c78e6dd3b007, type: 3}
-  weatherSprite: {fileID: 1666042390}
   gameIsReady: 0
   selectChoice: 0
 --- !u!1 &320997604
@@ -753,7 +754,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 320997604}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.507, z: 0}
+  m_LocalPosition: {x: 0, y: -0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2147,6 +2148,81 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1169796724}
   m_CullTransparentMesh: 0
+--- !u!1 &1180706001
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180706002}
+  - component: {fileID: 1180706004}
+  - component: {fileID: 1180706003}
+  m_Layer: 5
+  m_Name: DayText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1180706002
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180706001}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1316191021}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 60, y: -50}
+  m_SizeDelta: {x: 160, y: 30}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1180706003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180706001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 0.5529412, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 76441a03813204a709e018d80d7d0602, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Day X
+--- !u!222 &1180706004
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1180706001}
+  m_CullTransparentMesh: 0
 --- !u!1 &1224454792
 GameObject:
   m_ObjectHideFlags: 0
@@ -2317,6 +2393,7 @@ RectTransform:
   - {fileID: 1394637920}
   - {fileID: 1666042389}
   - {fileID: 790921708}
+  - {fileID: 1180706002}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2726,7 +2803,7 @@ MonoBehaviour:
   destination: {fileID: 320997605}
   servantPrefab: {fileID: 1623849569805020, guid: 6a24a67be39c04d0892a9b41d3018d28,
     type: 2}
-  radius: 0
+  radius: 0.3
 --- !u!1 &1463180639
 GameObject:
   m_ObjectHideFlags: 0

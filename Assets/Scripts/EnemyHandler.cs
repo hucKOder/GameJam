@@ -44,6 +44,25 @@ public class EnemyHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // Set difficulty based on day
+        if (DataHandler.Day <= 3)
+        {
+            chargeDistance = 0.5f;
+            chargeTime = 1.5f;
+        }
+        else
+        {
+            if (DataHandler.Day <= 6)
+            {
+                chargeDistance = 0.5f;
+                chargeTime = 1f;
+            }
+            else
+            {
+                chargeDistance = 0.8f;
+                chargeTime = 0.8f;
+            }
+        }
         fighter = GameObject.FindGameObjectWithTag("Fighter");
         spawnTimmer = Time.time + spawnTime;
     }

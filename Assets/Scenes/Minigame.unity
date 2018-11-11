@@ -443,7 +443,7 @@ MonoBehaviour:
   - {fileID: 21300008, guid: dc3d4f540579e4825a4ca46b208430c2, type: 3}
   - {fileID: 21300000, guid: dc3d4f540579e4825a4ca46b208430c2, type: 3}
   - {fileID: 21300002, guid: dc3d4f540579e4825a4ca46b208430c2, type: 3}
-  dashTimeout: 0.3
+  dashTimeout: 0.2
   dashRecoveryTime: 0.15
   dashMaxLength: 1
   dashSpeed: 0.4
