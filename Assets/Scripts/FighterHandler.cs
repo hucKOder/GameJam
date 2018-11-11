@@ -15,9 +15,23 @@ public class FighterHandler : MonoBehaviour
         Dead = 6,
     }
 
+    public enum Weapon
+    {
+        Sword,
+        FireBlade,
+        FrostAxe
+    }
+
     public Animator animator;
 
     public PlayerState state;
+
+    public Weapon weapon;
+
+    public GameObject weaponSlot;
+
+    public Sprite[] weaponSkins;
+
     public float dashTimeout = 0.3f; // inability to dash right after
     public float dashRecoveryTime = 0.15f; // invincible frame after dash
     public float dashMaxLength = 1f;
@@ -30,12 +44,20 @@ public class FighterHandler : MonoBehaviour
     private float dashRecoveryTimer;
     private Vector2 dashPosition;
 
+    private VisualHandler visualHandler;
+
     private bool invincible = false;
 
     // Use this for initialization
     void Start()
     {
         dashTimer = 0f;
+        visualHandler = GetComponent<VisualHandler>();
+        if (weaponSlot)
+        {
+            var wpn = weaponSlot.GetComponent<SpriteRenderer>();
+            wpn.sprite = weaponSkins[(int)weapon];
+        }
     }
 
     void FixedUpdate()
@@ -60,6 +82,7 @@ public class FighterHandler : MonoBehaviour
                 Vector3 hitPoint = ray.GetPoint(distance);
                 transform.position = Vector2.MoveTowards(transform.position, hitPoint, movementSpeed);
                 state = PlayerState.Walk;
+                visualHandler.SetDireciton(hitPoint);
             }
         }
         if (state != PlayerState.Hit
@@ -83,6 +106,7 @@ public class FighterHandler : MonoBehaviour
                 {
                     dashPosition = hitPoint;
                 }
+                visualHandler.SetDireciton(dashPosition);
                 dashTimer = Time.time + dashTimeout;
                 state = PlayerState.Dash;
                 invincible = true;

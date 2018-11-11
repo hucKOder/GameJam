@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Rendering;
 
 public class VisualHandler : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class VisualHandler : MonoBehaviour
     }
 
     public GameObject VisualProvider;
+    public SortingGroup sortingGroup;
 
     private Direction _direction = Direction.E;
     public Direction direction
@@ -81,8 +83,9 @@ public class VisualHandler : MonoBehaviour
 
     private bool init = false;
 
-    void Awake() 
+    void Awake()
     {
+
         VisualProvider = GameObject.FindWithTag("BodyParts");
     }
 
@@ -143,12 +146,46 @@ public class VisualHandler : MonoBehaviour
 
     public void LookLeft()
     {
-        transform.rotation = Quaternion.LookRotation(-Vector3.forward, Vector3.up);
+        transform.localScale.Set(-1.0f, transform.localScale.y, transform.localScale.z);
     }
 
     public void LookRight()
     {
-        transform.rotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
+        transform.localScale.Set(1.0f, transform.localScale.y, transform.localScale.z);
     }
 
+    public void Update()
+    {
+        sortingGroup.sortingOrder = Mathf.RoundToInt(transform.position.y * 100f) * -1;
+    }
+
+    public void SetDireciton(Vector3 target)
+    {
+
+        var diff = target - transform.position;
+
+        if (Mathf.Abs(diff.x) > Mathf.Abs(diff.y))
+        {
+            if (diff.x > 0)
+            {
+                direction = Direction.E;
+            }
+            else
+            {
+                direction = Direction.W;
+            }
+        }
+        else
+        {
+            if (diff.y > 0)
+            {
+                direction = Direction.N;
+            }
+            else
+            {
+                direction = Direction.S;
+            }
+        }
+
+    }
 }
