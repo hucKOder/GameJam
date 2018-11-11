@@ -27,7 +27,8 @@ public class CameraHandler : MonoBehaviour {
 
     private void ShowForecastWeather()
     {
-        weatherSprite.GetComponent<Image>().sprite = actualWeather[DataHandler.Weather];
+        DataHandler.Forecast = UnityEngine.Random.Range(0, 4);
+        weatherSprite.GetComponent<Image>().sprite = actualWeather[DataHandler.Forecast];
     }
 
     // Update is called once per frame
