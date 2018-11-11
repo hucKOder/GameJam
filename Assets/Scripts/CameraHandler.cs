@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +9,8 @@ public class CameraHandler : MonoBehaviour {
     public Image prayerBox;
     public Text followersText;
     public Text affectionText;
+    public Sprite[] actualWeather;
+    public Image weatherSprite;
 
     private bool transitionReady = false;
     [HideInInspector]
@@ -18,10 +21,18 @@ public class CameraHandler : MonoBehaviour {
     void Start () {
         affectionText.text = (DataHandler.GodsAffection * 100).ToString() + "%";
         followersText.text = DataHandler.Followers.ToString() + " followers";
+
+        ShowForecastWeather();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void ShowForecastWeather()
+    {
+        DataHandler.Forecast = UnityEngine.Random.Range(0, 4);
+        weatherSprite.GetComponent<Image>().sprite = actualWeather[DataHandler.Forecast];
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (!gameIsReady)
         {
             Quaternion finalRotation = Quaternion.LookRotation(Vector3.forward, Vector3.up);
