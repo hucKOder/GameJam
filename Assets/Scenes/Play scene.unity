@@ -3299,6 +3299,8 @@ MonoBehaviour:
   numberOfPeasants: 3
   destination: {fileID: 784418654}
   spawnPoint: {fileID: 866093047}
+  godWill: {fileID: 2105829933}
+  sceneController: {fileID: 528972525}
   positionOffset: 5
   randomOffsetX: 0.02
   randomOffsetY: 0.005
@@ -4583,7 +4585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2105829934
 MonoBehaviour:
   m_ObjectHideFlags: 0

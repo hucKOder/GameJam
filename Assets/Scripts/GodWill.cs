@@ -14,14 +14,6 @@ public class GodWill : MonoBehaviour
     void Start()
     {
         mh = GetComponent<MovementHandler>();
-        mh.destination = new Vector3(0.979f, 0.692f, 0);
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void FinishHim()
