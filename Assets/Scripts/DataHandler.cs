@@ -7,7 +7,7 @@ public static class DataHandler
 {
 
     private static List<Dialog> dialogJSONS = new List<Dialog>();
-    private static int followers = 5;
+    private static int followers = 20;
     private static float godsAffection = 1;
 
     private static bool wasInMinigame = false;
