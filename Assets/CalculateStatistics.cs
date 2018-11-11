@@ -38,6 +38,7 @@ public class CalculateStatistics : MonoBehaviour {
         else
         {
             DataHandler.GodsAffection += 0.03f;
+            DataHandler.GodsAffection = Mathf.Clamp(DataHandler.GodsAffection, 0f, 1f);
             affectionText.text = DataHandler.GodsAffection.ToString() + " (+0.03)";
         }
     }
