@@ -562,58 +562,72 @@ MonoBehaviour:
   - {fileID: 21300000, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300000, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300000, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300000, guid: 81538583fba064045bc082added6aae3, type: 3}
   heads_back:
   - {fileID: 21300028, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300002, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300002, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300002, guid: 81538583fba064045bc082added6aae3, type: 3}
   chests:
   - {fileID: 21300002, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300004, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300008, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300004, guid: 81538583fba064045bc082added6aae3, type: 3}
   chests_back:
   - {fileID: 21300030, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300006, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300010, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300006, guid: 81538583fba064045bc082added6aae3, type: 3}
   pelvises:
   - {fileID: 21300004, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300016, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300026, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300016, guid: 81538583fba064045bc082added6aae3, type: 3}
   pelvises_back:
   - {fileID: 21300032, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300018, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300024, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300018, guid: 81538583fba064045bc082added6aae3, type: 3}
   upper_arms_r:
   - {fileID: 21300016, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300010, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300012, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300012, guid: 81538583fba064045bc082added6aae3, type: 3}
   upper_arms_l:
   - {fileID: 21300014, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300008, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300004, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300008, guid: 81538583fba064045bc082added6aae3, type: 3}
   forearms_r:
   - {fileID: 21300018, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300012, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300014, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300014, guid: 81538583fba064045bc082added6aae3, type: 3}
   forearms_l:
   - {fileID: 21300020, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300014, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300006, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300010, guid: 81538583fba064045bc082added6aae3, type: 3}
   thighs_r:
   - {fileID: 21300010, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300024, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300016, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300020, guid: 81538583fba064045bc082added6aae3, type: 3}
   thighs_l:
   - {fileID: 21300006, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300020, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300020, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300020, guid: 81538583fba064045bc082added6aae3, type: 3}
   calves_r:
   - {fileID: 21300012, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300026, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300022, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300022, guid: 81538583fba064045bc082added6aae3, type: 3}
   calves_l:
   - {fileID: 21300008, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   - {fileID: 21300022, guid: a2eb7d3aa95fa44258e9d9f62422b233, type: 3}
   - {fileID: 21300018, guid: eb0266a1173534c5fb25f1d28d4f7f16, type: 3}
+  - {fileID: 21300022, guid: 81538583fba064045bc082added6aae3, type: 3}
 --- !u!4 &1278934658
 Transform:
   m_ObjectHideFlags: 0

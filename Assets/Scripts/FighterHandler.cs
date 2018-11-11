@@ -39,7 +39,7 @@ public class FighterHandler : MonoBehaviour
     public float dashMaxLength = 1f;
     public float dashSpeed = 0.4f;
     public SceneController sceneController;
-    public AudioClip[] att; 
+    public AudioClip[] att;
 
 
     public float movementSpeed = 0.02f;
@@ -55,12 +55,21 @@ public class FighterHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+
+
         dashTimer = 0f;
         visualHandler = GetComponent<VisualHandler>();
         if (weaponSlot)
         {
             var wpn = weaponSlot.GetComponent<SpriteRenderer>();
             wpn.sprite = weaponSkins[(int)weapon];
+        }
+        if (DataHandler.Day >= 3)
+        {
+            visualHandler.chestID = 3;
+            visualHandler.headID = 3;
+            visualHandler.legsID = 3;
+            visualHandler.SetVisuals();
         }
     }
 
@@ -123,7 +132,7 @@ public class FighterHandler : MonoBehaviour
         if (state == PlayerState.Dash)
         {
             transform.position = Vector2.MoveTowards(transform.position, dashPosition, dashSpeed);
-            
+
             if (Vector2.Distance(transform.position, dashPosition) < 0.1)
             {
                 dashRecoveryTimer = Time.time + dashRecoveryTime;
