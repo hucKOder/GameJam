@@ -15,7 +15,7 @@ public class ServantSpawner : MonoBehaviour {
 
 	IEnumerator Wait()
     {
-		for (var i = 0; i < 5; i++) {
+		for (var i = 0; i < (int) (DataHandler.Followers / 10); i++) {
 			var servant = Instantiate(servantPrefab, transform.position, transform.rotation);
 			var mh = servant.GetComponent<MovementHandler>();
 			var tempVect = new Vector2(destination.position.x, destination.position.y) + UnityEngine.Random.insideUnitCircle * radius;
