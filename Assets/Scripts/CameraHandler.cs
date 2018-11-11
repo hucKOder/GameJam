@@ -9,8 +9,9 @@ public class CameraHandler : MonoBehaviour {
     public Image prayerBox;
     public Text followersText;
     public Text affectionText;
-    public Sprite[] actualWeather;
     public Image weatherSprite;
+    public Text dayText;
+    public Sprite[] actualWeather;
 
     private bool transitionReady = false;
     [HideInInspector]
@@ -23,6 +24,12 @@ public class CameraHandler : MonoBehaviour {
         followersText.text = DataHandler.Followers.ToString() + " followers";
 
         ShowForecastWeather();
+        ShowDay();
+    }
+
+    private void ShowDay()
+    {
+        dayText.text = "Day " + DataHandler.Day.ToString();
     }
 
     private void ShowForecastWeather()

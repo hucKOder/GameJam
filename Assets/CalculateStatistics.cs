@@ -23,6 +23,8 @@ public class CalculateStatistics : MonoBehaviour {
 
         DataHandler.Reward = new int[4] { 0, 0, 0, 0 };
         DataHandler.Penalty = new int[4] { 0, 0, 0, 0 };
+
+        DataHandler.Day++;
     }
 
     private void Affection()

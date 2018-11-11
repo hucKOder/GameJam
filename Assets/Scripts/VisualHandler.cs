@@ -44,6 +44,7 @@ public class VisualHandler : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        sortingGroup = GetComponent<SortingGroup>();
         SetVisuals();
     }
 
