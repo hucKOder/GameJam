@@ -882,6 +882,16 @@ Prefab:
       propertyPath: att.Array.data[1]
       value: 
       objectReference: {fileID: 8300000, guid: ca1e97006a95d4b449724259610131bc, type: 3}
+    - target: {fileID: 61516754919399864, guid: d33b2221aca814e1bb2d1f3ca351b386,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 61516754919399864, guid: d33b2221aca814e1bb2d1f3ca351b386,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d33b2221aca814e1bb2d1f3ca351b386, type: 2}
   m_IsPrefabAsset: 0
@@ -954,7 +964,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1525010519}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
