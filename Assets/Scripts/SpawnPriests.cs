@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnPriests : MonoBehaviour {
+public class SpawnPriests : MonoBehaviour
+{
 
     public CameraHandler cameraHandler;
 
@@ -34,25 +35,27 @@ public class SpawnPriests : MonoBehaviour {
     void Start()
     {
         numberOfPeasants = Random.Range(1, 4);
-        
+
         if (DataHandler.Followers <= 0 || DataHandler.Followers > 100 || DataHandler.GodsAffection <= 0)
         {
             isGameOver = true;
             godWill.SetActive(true);
             godWill.GetComponent<GodWill>().FinishHim();
             StartCoroutine(triggerGameOver());
-        } 
+        }
     }
 
     // Update is called once per frame
-    void Update () {
+    void Update()
+    {
         if (isGameOver)
         {
-            
+
         }
         else
         {
-            if (!peasantsSpawned && cameraHandler.gameIsReady) {
+            if (!peasantsSpawned && cameraHandler.gameIsReady)
+            {
                 SpawnPeasants();
                 peasantsSpawned = true;
             }
@@ -100,6 +103,14 @@ public class SpawnPriests : MonoBehaviour {
         for (var i = 0; i < numberOfPeasants; i++)
         {
             GameObject peasant = Instantiate(peasantPrefab, spawnPoint.position + new Vector3(i * spawnOffset, 0, 0), Quaternion.LookRotation(-Vector3.forward, Vector3.up));
+            var visHandler = peasant.GetComponent<VisualHandler>();
+            if (visHandler)
+            {
+                visHandler.chestID = Random.Range(2, 6);
+                visHandler.headID = Random.Range(2, 6);
+                visHandler.legsID = Random.Range(2, 6);
+            }
+
             MovementHandler movementHandler = peasant.GetComponent<MovementHandler>();
             peasants.Add(peasant);
 
