@@ -731,6 +731,34 @@ MonoBehaviour:
   weatherSprite: {fileID: 1666042390}
   gameIsReady: 0
   selectChoice: 0
+--- !u!1 &320997604
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 320997605}
+  m_Layer: 0
+  m_Name: ServantPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &320997605
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 320997604}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.507, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &326037248
 GameObject:
   m_ObjectHideFlags: 0
@@ -989,7 +1017,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 430810864}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.635, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1615,7 +1643,7 @@ GameObject:
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
-  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2600,6 +2628,7 @@ GameObject:
   - component: {fileID: 1418993078}
   - component: {fileID: 1418993079}
   - component: {fileID: 1418993080}
+  - component: {fileID: 1418993081}
   m_Layer: 0
   m_Name: PriestSpawner
   m_TagString: BodyParts
@@ -2683,6 +2712,21 @@ MonoBehaviour:
   - {fileID: 21300008, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
   calves_l:
   - {fileID: 21300012, guid: aaa80b39e60eb455e86f120268b25ca1, type: 3}
+--- !u!114 &1418993081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1418993077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55113ad7b088e41cd9ddfe795fb66929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destination: {fileID: 320997605}
+  servantPrefab: {fileID: 1623849569805020, guid: 6a24a67be39c04d0892a9b41d3018d28,
+    type: 2}
+  radius: 0
 --- !u!1 &1463180639
 GameObject:
   m_ObjectHideFlags: 0
@@ -3206,7 +3250,7 @@ GameObject:
   m_Layer: 0
   m_Name: SpawnPointEnemies
   m_TagString: Untagged
-  m_Icon: {fileID: 7148428337604731935, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
