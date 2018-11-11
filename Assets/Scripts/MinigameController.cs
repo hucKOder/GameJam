@@ -21,6 +21,7 @@ public class MinigameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         DataHandler.WasInMinigame = true;
+        DataHandler.KilledDemons = 0;
         var affection = DataHandler.GodsAffection;
         numberOfEnemies =  minEnemies + (int) (Mathf.Round(enemiesCoeff / affection)) - enemiesCoeff;
 
