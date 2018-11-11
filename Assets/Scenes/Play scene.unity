@@ -724,10 +724,10 @@ MonoBehaviour:
   followersText: {fileID: 1531866254}
   affectionText: {fileID: 1394637921}
   actualWeather:
-  - {fileID: 21300000, guid: 445cc5ced1f694a4da74fd69f4f8956b, type: 3}
-  - {fileID: 21300000, guid: 445cc5ced1f694a4da74fd69f4f8956b, type: 3}
-  - {fileID: 21300000, guid: c0db2796953b3489ba8941d7f6c5125f, type: 3}
+  - {fileID: 21300000, guid: 6f1c80129cb086a4cae2c3f09b5087c8, type: 3}
   - {fileID: 21300000, guid: 97c4e65bb15e040e78e2d2ff02e9c413, type: 3}
+  - {fileID: 21300000, guid: c0db2796953b3489ba8941d7f6c5125f, type: 3}
+  - {fileID: 21300000, guid: a655c534d18be403bb84c78e6dd3b007, type: 3}
   weatherSprite: {fileID: 1666042390}
   gameIsReady: 0
   selectChoice: 0
